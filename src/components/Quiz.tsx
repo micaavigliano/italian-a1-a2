@@ -19,7 +19,7 @@ export function Quiz({ questions, unitIndex }: QuizProps) {
 
   return (
     <div className="lesson">
-      <h3><span className="icon">✅</span> Practice Quiz</h3>
+      <h3><span className="icon" aria-hidden="true">✅</span> Practice Quiz</h3>
       {questions.map((q, qi) => {
         const qKey = `${unitIndex}-${qi}`;
         const answered = answers[qKey] !== undefined;

@@ -29,7 +29,7 @@ export function Navigation({ units, currentUnit, showingVerbTable, onSelectUnit,
           color: showingVerbTable ? 'white' : 'var(--text2)',
         }}
       >
-        📊 Verb Table
+        <span aria-hidden="true">📊</span> Verb Table
       </button>
     </div>
   );

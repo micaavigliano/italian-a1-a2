@@ -21,7 +21,7 @@ export function UnitView({ unit, unitIndex, totalUnits, onPrev, onNext }: UnitVi
 
       {unit.lessons.map((lesson, li) => (
         <div key={li} className="lesson">
-          <h3><span className="icon">{lesson.icon}</span> {lesson.title}</h3>
+          <h3><span className="icon" aria-hidden="true">{lesson.icon}</span> {lesson.title}</h3>
           {lesson.content}
         </div>
       ))}
