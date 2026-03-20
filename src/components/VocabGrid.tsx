@@ -14,7 +14,7 @@ export function VocabGrid({ vocab, unitIndex }: VocabGridProps) {
 
   return (
     <div className="lesson">
-      <h3><span className="icon">📚</span> Vocabulary — Tap to reveal</h3>
+      <h3><span className="icon" aria-hidden="true">📚</span> Vocabulary (Tap to reveal)</h3>
       <div className="vocab-grid">
         {vocab.map(([word, translation], vi) => {
           const key = `${unitIndex}-${vi}`;

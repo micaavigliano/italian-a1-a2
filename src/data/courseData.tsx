@@ -6,7 +6,7 @@ import type { Unit } from '../types';
 export const COURSE: Unit[] = [
   // ===================== UNIT 1 =====================
   {
-    id: 1, level: "A1", title: "Ciao! — Greetings & Introductions",
+    id: 1, level: "A1", title: "Ciao! Greetings & Introductions",
     desc: "Learn to introduce yourself, greet people, and use basic courtesy phrases.",
     lessons: [
       {
@@ -79,7 +79,7 @@ export const COURSE: Unit[] = [
               <Example it={'SC + e/i → "sh" sound'} en="pesce (PE-she), scienza (SHEN-tsa)" />
               <Example it="Double consonants → longer" en="notte vs note, palla vs pala" />
             </GrammarBox>
-            <Tip><strong>💡 Tip:</strong> Italian is mostly phonetic — what you see is what you say! Stress usually falls on the second-to-last syllable.</Tip>
+            <Tip><strong>💡 Tip:</strong> Italian is mostly phonetic, what you see is what you say! Stress usually falls on the second-to-last syllable.</Tip>
           </>
         )
       }
@@ -126,7 +126,7 @@ export const COURSE: Unit[] = [
               </thead>
               <tbody>
                 <tr><td style={{ fontWeight: 700 }}>Definite (the)</td><td>il / lo / l'</td><td>la / l'</td><td>i / gli</td><td>le</td></tr>
-                <tr><td style={{ fontWeight: 700 }}>Indefinite (a/an)</td><td>un / uno</td><td>una / un'</td><td colSpan={2} style={{ color: "var(--text3)" }}>— (use "dei/degli/delle" for some)</td></tr>
+                <tr><td style={{ fontWeight: 700 }}>Indefinite (a/an)</td><td>un / uno</td><td>una / un'</td><td colSpan={2} style={{ color: "var(--text3)" }}>, (use "dei/degli/delle" for some)</td></tr>
               </tbody>
             </table>
             <GrammarBox title="When to use LO / GLI / UNO" style={{ marginTop: "16px" }}>
@@ -152,7 +152,7 @@ export const COURSE: Unit[] = [
 
   // ===================== UNIT 4 =====================
   {
-    id: 4, level: "A1", title: "Essere & Avere — The Essential Verbs",
+    id: 4, level: "A1", title: "Essere & Avere. The Essential Verbs",
     desc: "Conjugate the two most important Italian verbs in the present tense.",
     lessons: [
       {
@@ -212,11 +212,11 @@ export const COURSE: Unit[] = [
 
   // ===================== UNIT 5 =====================
   {
-    id: 5, level: "A1", title: "Present Tense — Regular Verbs",
+    id: 5, level: "A1", title: "Present Tense. Regular Verbs",
     desc: "Learn to conjugate -ARE, -ERE, and -IRE verbs in the present indicative.",
     lessons: [
       {
-        title: "-ARE Verbs (parlare — to speak)", icon: "🗨️",
+        title: "-ARE Verbs (parlare, to speak)", icon: "🗨️",
         content: (
           <>
             <table className="conj-table">
@@ -424,7 +424,7 @@ export const COURSE: Unit[] = [
 
   // ===================== UNIT 9 =====================
   {
-    id: 9, level: "A2", title: "Passato Prossimo — Past Tense",
+    id: 9, level: "A2", title: "Passato Prossimo. Past Tense",
     desc: "Talk about completed actions in the past using essere and avere as auxiliaries.",
     lessons: [
       {
@@ -481,7 +481,7 @@ export const COURSE: Unit[] = [
 
   // ===================== UNIT 10 =====================
   {
-    id: 10, level: "A2", title: "Imperfetto — The Other Past",
+    id: 10, level: "A2", title: "Imperfetto. The Other Past",
     desc: "Describe habits, ongoing states, and background actions in the past.",
     lessons: [
       {
@@ -634,7 +634,7 @@ export const COURSE: Unit[] = [
               <Example it="Posso venire domani." en="I can come tomorrow." />
               <Example it="Devi studiare di più." en="You must study more." />
               <Example it="Voglio imparare l'italiano!" en="I want to learn Italian!" />
-              <Example it="Vorrei un caffè, per favore." en="I would like a coffee, please. (conditional — polite)" />
+              <Example it="Vorrei un caffè, per favore." en="I would like a coffee, please. (conditional - polite)" />
             </GrammarBox>
           </>
         )

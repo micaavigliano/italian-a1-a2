@@ -39,7 +39,7 @@ export function VerbTable() {
       <div className="unit-header">
         <span className="level-badge" style={{ background: '#FEF3C7', color: '#92400E' }}>📊 Reference</span>
         <h2>Verb Conjugation Table</h2>
-        <p>All {VERBS.length} verbs across 4 tenses — search, filter by type, and switch tenses.</p>
+        <p>All {VERBS.length} verbs across 4 tenses. Search, filter by type, and switch tenses.</p>
       </div>
       <div className="lesson">
         <input
