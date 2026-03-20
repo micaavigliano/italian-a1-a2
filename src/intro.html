@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiano — A1 → A2 Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app" id="app"></div>
+
+<script>
+const COURSE = [
+  // ===================== UNIT 1 =====================
+  {
+    id: 1, level: "A1", title: "Ciao! — Greetings & Introductions",
+    desc: "Learn to introduce yourself, greet people, and use basic courtesy phrases.",
+    lessons: [
+      {
+        title: "Greetings & Courtesy", icon: "👋",
+        content: `
+          <div class="grammar-box">
+            <h4>Essential Greetings</h4>
+            <div class="example"><span class="it">Ciao!</span><span class="en">Hi! / Bye! (informal)</span></div>
+            <div class="example"><span class="it">Buongiorno</span><span class="en">Good morning / Good day (formal)</span></div>
+            <div class="example"><span class="it">Buonasera</span><span class="en">Good evening (formal)</span></div>
+            <div class="example"><span class="it">Buonanotte</span><span class="en">Good night</span></div>
+            <div class="example"><span class="it">Arrivederci</span><span class="en">Goodbye (formal)</span></div>
+            <div class="example"><span class="it">Per favore / Grazie / Prego</span><span class="en">Please / Thank you / You're welcome</span></div>
+            <div class="example"><span class="it">Scusi (formal) / Scusa (informal)</span><span class="en">Excuse me / Sorry</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Use "buongiorno" until about 4-5 PM, then switch to "buonasera." "Ciao" is only for friends & family!</div>
+        `
+      },
+      {
+        title: "Introducing Yourself", icon: "🗣️",
+        content: `
+          <div class="grammar-box">
+            <h4>Key Phrases</h4>
+            <div class="example"><span class="it">Come ti chiami? / Come si chiama?</span><span class="en">What's your name? (informal / formal)</span></div>
+            <div class="example"><span class="it">Mi chiamo Marco.</span><span class="en">My name is Marco.</span></div>
+            <div class="example"><span class="it">Piacere! / Molto lieto/a!</span><span class="en">Nice to meet you!</span></div>
+            <div class="example"><span class="it">Di dove sei? / Di dov'è?</span><span class="en">Where are you from? (inf. / form.)</span></div>
+            <div class="example"><span class="it">Sono di Milano. / Sono inglese.</span><span class="en">I'm from Milan. / I'm English.</span></div>
+            <div class="example"><span class="it">Quanti anni hai?</span><span class="en">How old are you?</span></div>
+            <div class="example"><span class="it">Ho venticinque anni.</span><span class="en">I'm 25 years old.</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Italian uses "avere" (to have) for age: literally "I have 25 years."</div>
+        `
+      }
+    ],
+    vocab: [
+      ["ciao","hi/bye"],["buongiorno","good morning"],["buonasera","good evening"],["grazie","thank you"],["prego","you're welcome"],["sì","yes"],["no","no"],["per favore","please"],["scusa","sorry"],["arrivederci","goodbye"],["come","how"],["dove","where"]
+    ],
+    quiz: [
+      { q: "How do you say 'My name is Anna'?", opts: ["Mi chiamo Anna","Io sono nome Anna","Chiamo mi Anna","Anna mi chiama"], correct: 0 },
+      { q: "Which greeting is formal?", opts: ["Ciao","Buongiorno","Ehi","Salve"], correct: 1 },
+      { q: "'Quanti anni hai?' asks about your…", opts: ["Name","Job","Age","Origin"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 2 =====================
+  {
+    id: 2, level: "A1", title: "The Italian Alphabet & Pronunciation",
+    desc: "Master Italian sounds, stress rules, and the alphabet.",
+    lessons: [
+      {
+        title: "The Alphabet & Sounds", icon: "🔤",
+        content: `
+          <div class="grammar-box">
+            <h4>Italian Alphabet (21 letters + 5 foreign)</h4>
+            <p style="font-family:'JetBrains Mono',monospace; font-size:14px; line-height:2;">
+              A B C D E F G H I L M N O P Q R S T U V Z<br>
+              <span style="color:var(--text3);">+ foreign letters: J K W X Y (used in loanwords)</span>
+            </p>
+          </div>
+          <div class="grammar-box">
+            <h4>Key Pronunciation Rules</h4>
+            <div class="example"><span class="it">C + e/i → "ch" sound</span><span class="en">cena (CHE-na), cinema (CHI-ne-ma)</span></div>
+            <div class="example"><span class="it">C + a/o/u → "k" sound</span><span class="en">casa (KA-za), come (KO-me)</span></div>
+            <div class="example"><span class="it">CH → always "k"</span><span class="en">chiave (KYAH-ve), che (ke)</span></div>
+            <div class="example"><span class="it">G + e/i → "j" sound</span><span class="en">gelato (je-LA-to), giro (JI-ro)</span></div>
+            <div class="example"><span class="it">G + a/o/u → hard "g"</span><span class="en">gatto (GAT-to), gusto (GOO-sto)</span></div>
+            <div class="example"><span class="it">GH → always hard "g"</span><span class="en">spaghetti (spa-GET-ti)</span></div>
+            <div class="example"><span class="it">GN → "ny" sound</span><span class="en">gnocchi (NYOK-ki), bagno (BA-nyo)</span></div>
+            <div class="example"><span class="it">GL + i → "ly" sound</span><span class="en">gli (lyee), famiglia (fa-MI-lya)</span></div>
+            <div class="example"><span class="it">SC + e/i → "sh" sound</span><span class="en">pesce (PE-she), scienza (SHEN-tsa)</span></div>
+            <div class="example"><span class="it">Double consonants → longer</span><span class="en">notte vs note, palla vs pala</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Italian is mostly phonetic — what you see is what you say! Stress usually falls on the second-to-last syllable.</div>
+        `
+      }
+    ],
+    vocab: [
+      ["lettera","letter"],["parola","word"],["frase","sentence"],["leggere","to read"],["scrivere","to write"],["parlare","to speak"],["ascoltare","to listen"],["capire","to understand"],["ripetere","to repeat"],["pronuncia","pronunciation"]
+    ],
+    quiz: [
+      { q: "How is 'C' pronounced before 'E'?", opts: ["Like K","Like CH (as in church)","Like S","Silent"], correct: 1 },
+      { q: "What sound does 'GN' make?", opts: ["G-N separately","NY (like canyon)","Silent G","Hard G"], correct: 1 },
+      { q: "Where does stress usually fall?", opts: ["First syllable","Last syllable","Second-to-last syllable","Third syllable"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 3 =====================
+  {
+    id: 3, level: "A1", title: "Nouns, Articles & Gender",
+    desc: "Understand masculine/feminine, singular/plural, and definite/indefinite articles.",
+    lessons: [
+      {
+        title: "Gender of Nouns", icon: "📖",
+        content: `
+          <div class="grammar-box">
+            <h4>Gender Rules</h4>
+            <p style="margin-bottom:10px; font-size:14px;">Most Italian nouns are either <strong>masculine</strong> or <strong>feminine</strong>:</p>
+            <div class="example"><span class="it">-O → masculine</span><span class="en">il libro (book), il ragazzo (boy)</span></div>
+            <div class="example"><span class="it">-A → feminine</span><span class="en">la casa (house), la ragazza (girl)</span></div>
+            <div class="example"><span class="it">-E → can be either!</span><span class="en">il ristorante (m.), la notte (f.)</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>Plurals</h4>
+            <div class="example"><span class="it">-O → -I</span><span class="en">libro → libri</span></div>
+            <div class="example"><span class="it">-A → -E</span><span class="en">casa → case</span></div>
+            <div class="example"><span class="it">-E → -I</span><span class="en">notte → notti</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Nouns ending in -ista can be M or F (il turista / la turista). Context and articles tell you!</div>
+        `
+      },
+      {
+        title: "Definite & Indefinite Articles", icon: "📝",
+        content: `
+          <table class="conj-table">
+            <tr><th></th><th>Masc. Sing.</th><th>Fem. Sing.</th><th>Masc. Plur.</th><th>Fem. Plur.</th></tr>
+            <tr><td style="font-weight:700">Definite (the)</td><td>il / lo / l'</td><td>la / l'</td><td>i / gli</td><td>le</td></tr>
+            <tr><td style="font-weight:700">Indefinite (a/an)</td><td>un / uno</td><td>una / un'</td><td colspan="2" style="color:var(--text3)">— (use "dei/degli/delle" for some)</td></tr>
+          </table>
+          <div class="grammar-box" style="margin-top:16px">
+            <h4>When to use LO / GLI / UNO</h4>
+            <p style="font-size:14px;">Before masculine nouns starting with: <strong>z, s+consonant, gn, ps, x, y</strong></p>
+            <div class="example"><span class="it">lo studente → gli studenti</span><span class="en">the student → the students</span></div>
+            <div class="example"><span class="it">lo zaino → gli zaini</span><span class="en">the backpack → the backpacks</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>L' (elision)</h4>
+            <p style="font-size:14px;">Before any singular noun starting with a vowel:</p>
+            <div class="example"><span class="it">l'amico (m.) / l'amica (f.)</span><span class="en">the (male) friend / the (female) friend</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["il libro","the book"],["la casa","the house"],["l'uomo","the man"],["la donna","the woman"],["il ragazzo","the boy"],["la ragazza","the girl"],["un amico","a friend (m)"],["un'amica","a friend (f)"],["la scuola","the school"],["il cane","the dog"],["il gatto","the cat"],["l'acqua","the water"]
+    ],
+    quiz: [
+      { q: "What is the plural of 'il libro'?", opts: ["i libri","le libre","gli libri","i libre"], correct: 0 },
+      { q: "Which article goes with 'studente'?", opts: ["il studente","lo studente","la studente","un studente"], correct: 1 },
+      { q: "'La casa' becomes in plural…", opts: ["le case","la case","le casa","i casi"], correct: 0 }
+    ]
+  },
+
+  // ===================== UNIT 4 =====================
+  {
+    id: 4, level: "A1", title: "Essere & Avere — The Essential Verbs",
+    desc: "Conjugate the two most important Italian verbs in the present tense.",
+    lessons: [
+      {
+        title: "ESSERE (to be)", icon: "🔵",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>Conjugation</th><th>Example</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">sono</td><td>Io sono italiano. (I am Italian.)</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">sei</td><td>Tu sei simpatico. (You are nice.)</td></tr>
+            <tr><td class="pronoun">lui/lei/Lei</td><td class="verb">è</td><td>Lei è dottoressa. (She is a doctor.)</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">siamo</td><td>Noi siamo amici. (We are friends.)</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">siete</td><td>Voi siete studenti. (You all are students.)</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">sono</td><td>Loro sono a Roma. (They are in Rome.)</td></tr>
+          </table>
+          <div class="tip"><strong>💡 Tip:</strong> "Io sono" and "Loro sono" are the same form! Context makes it clear. Also, subject pronouns are often dropped: "Sono italiano" is perfectly natural.</div>
+        `
+      },
+      {
+        title: "AVERE (to have)", icon: "🟢",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>Conjugation</th><th>Example</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">ho</td><td>Ho fame. (I'm hungry.)</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">hai</td><td>Hai ragione. (You're right.)</td></tr>
+            <tr><td class="pronoun">lui/lei/Lei</td><td class="verb">ha</td><td>Ha un cane. (He/She has a dog.)</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">abbiamo</td><td>Abbiamo tempo. (We have time.)</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">avete</td><td>Avete domande? (Do you have questions?)</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">hanno</td><td>Hanno una casa grande. (They have a big house.)</td></tr>
+          </table>
+          <div class="grammar-box">
+            <h4>Expressions with AVERE</h4>
+            <div class="example"><span class="it">avere fame / sete</span><span class="en">to be hungry / thirsty</span></div>
+            <div class="example"><span class="it">avere caldo / freddo</span><span class="en">to be hot / cold</span></div>
+            <div class="example"><span class="it">avere sonno</span><span class="en">to be sleepy</span></div>
+            <div class="example"><span class="it">avere paura</span><span class="en">to be afraid</span></div>
+            <div class="example"><span class="it">avere ragione / torto</span><span class="en">to be right / wrong</span></div>
+            <div class="example"><span class="it">avere bisogno di</span><span class="en">to need</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> The 'H' in ho, hai, ha, hanno is <em>always silent</em>. It's only there to distinguish these from other words (o = or, ai = to the, a = to, anno = year).</div>
+        `
+      }
+    ],
+    vocab: [
+      ["essere","to be"],["avere","to have"],["fame","hunger"],["sete","thirst"],["caldo","hot"],["freddo","cold"],["sonno","sleep"],["paura","fear"],["ragione","reason/right"],["bisogno","need"],["tempo","time"],["domanda","question"]
+    ],
+    quiz: [
+      { q: "Complete: Noi ___ italiani.", opts: ["sono","è","siamo","siete"], correct: 2 },
+      { q: "'I am hungry' in Italian is:", opts: ["Sono fame","Ho fame","Io fame","Avere fame"], correct: 1 },
+      { q: "Complete: Loro ___ due gatti.", opts: ["ha","hanno","avete","abbiamo"], correct: 1 }
+    ]
+  },
+
+  // ===================== UNIT 5 =====================
+  {
+    id: 5, level: "A1", title: "Present Tense — Regular Verbs",
+    desc: "Learn to conjugate -ARE, -ERE, and -IRE verbs in the present indicative.",
+    lessons: [
+      {
+        title: "-ARE Verbs (parlare — to speak)", icon: "🗨️",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>Ending</th><th>Parlare</th><th>Lavorare</th></tr>
+            <tr><td class="pronoun">io</td><td class="ending">-o</td><td class="verb">parlo</td><td class="verb">lavoro</td></tr>
+            <tr><td class="pronoun">tu</td><td class="ending">-i</td><td class="verb">parli</td><td class="verb">lavori</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="ending">-a</td><td class="verb">parla</td><td class="verb">lavora</td></tr>
+            <tr><td class="pronoun">noi</td><td class="ending">-iamo</td><td class="verb">parliamo</td><td class="verb">lavoriamo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="ending">-ate</td><td class="verb">parlate</td><td class="verb">lavorate</td></tr>
+            <tr><td class="pronoun">loro</td><td class="ending">-ano</td><td class="verb">parlano</td><td class="verb">lavorano</td></tr>
+          </table>
+          <div class="tip"><strong>💡 Common -ARE verbs:</strong> mangiare (eat), guardare (watch), ascoltare (listen), comprare (buy), cucinare (cook), abitare (live), studiare (study), viaggiare (travel).</div>
+        `
+      },
+      {
+        title: "-ERE & -IRE Verbs", icon: "✏️",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>-ERE (scrivere)</th><th>-IRE (dormire)</th><th>-IRE -isc (capire)</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">scrivo</td><td class="verb">dormo</td><td class="verb">cap<span class="ending">isc</span>o</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">scrivi</td><td class="verb">dormi</td><td class="verb">cap<span class="ending">isc</span>i</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="verb">scrive</td><td class="verb">dorme</td><td class="verb">cap<span class="ending">isc</span>e</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">scriviamo</td><td class="verb">dormiamo</td><td class="verb">capiamo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">scrivete</td><td class="verb">dormite</td><td class="verb">capite</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">scrivono</td><td class="verb">dormono</td><td class="verb">cap<span class="ending">isc</span>ono</td></tr>
+          </table>
+          <div class="grammar-box">
+            <h4>-ISC- Verbs (important group!)</h4>
+            <p style="font-size:14px;">Many -IRE verbs insert <strong>-isc-</strong> in all forms except noi and voi.</p>
+            <div class="example"><span class="it">finire → finisco, finisci, finisce… finiamo, finite, finiscono</span><span class="en">to finish</span></div>
+            <div class="example"><span class="it">preferire → preferisco…</span><span class="en">to prefer</span></div>
+            <div class="example"><span class="it">pulire → pulisco…</span><span class="en">to clean</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["parlare","to speak"],["mangiare","to eat"],["lavorare","to work"],["abitare","to live"],["scrivere","to write"],["leggere","to read"],["vivere","to live"],["dormire","to sleep"],["capire","to understand"],["finire","to finish"],["partire","to leave"],["aprire","to open"]
+    ],
+    quiz: [
+      { q: "Conjugate 'mangiare' for 'noi':", opts: ["mangiamo","mangia","mangiate","mangiano"], correct: 0 },
+      { q: "'Tu _____ un libro' (leggere):", opts: ["legge","leggi","leggete","leggo"], correct: 1 },
+      { q: "'Loro _____ italiano' (capire):", opts: ["capono","capiamo","capiscono","capisce"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 6 =====================
+  {
+    id: 6, level: "A1", title: "Adjectives & Descriptions",
+    desc: "Describe people, places, and things with adjective agreement and position.",
+    lessons: [
+      {
+        title: "Adjective Agreement", icon: "🎨",
+        content: `
+          <div class="grammar-box">
+            <h4>4-form Adjectives (-o/-a/-i/-e)</h4>
+            <div class="example"><span class="it">il ragazzo alto / la ragazza alta</span><span class="en">the tall boy / the tall girl</span></div>
+            <div class="example"><span class="it">i ragazzi alti / le ragazze alte</span><span class="en">the tall boys / the tall girls</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>2-form Adjectives (-e/-i)</h4>
+            <div class="example"><span class="it">il ragazzo intelligente / la ragazza intelligente</span><span class="en">Same form for M and F singular</span></div>
+            <div class="example"><span class="it">i ragazzi intelligenti / le ragazze intelligenti</span><span class="en">Same form for M and F plural</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Adjectives usually go <em>after</em> the noun in Italian: "una macchina rossa" (a red car). A few common ones go before: bello, buono, grande, piccolo, brutto, giovane, vecchio.</div>
+        `
+      },
+      {
+        title: "Common Adjectives", icon: "📋",
+        content: `
+          <div class="grammar-box">
+            <h4>Opposites</h4>
+            <div class="example"><span class="it">grande ↔ piccolo/a</span><span class="en">big ↔ small</span></div>
+            <div class="example"><span class="it">bello/a ↔ brutto/a</span><span class="en">beautiful ↔ ugly</span></div>
+            <div class="example"><span class="it">buono/a ↔ cattivo/a</span><span class="en">good ↔ bad</span></div>
+            <div class="example"><span class="it">nuovo/a ↔ vecchio/a</span><span class="en">new ↔ old</span></div>
+            <div class="example"><span class="it">facile ↔ difficile</span><span class="en">easy ↔ difficult</span></div>
+            <div class="example"><span class="it">caro/a ↔ economico/a</span><span class="en">expensive ↔ cheap</span></div>
+            <div class="example"><span class="it">lungo/a ↔ corto/a</span><span class="en">long ↔ short</span></div>
+            <div class="example"><span class="it">felice ↔ triste</span><span class="en">happy ↔ sad</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["grande","big"],["piccolo","small"],["bello","beautiful"],["brutto","ugly"],["buono","good"],["cattivo","bad"],["nuovo","new"],["vecchio","old"],["caldo","hot"],["freddo","cold"],["alto","tall"],["basso","short"]
+    ],
+    quiz: [
+      { q: "'Le ragazze sono ___' (smart):", opts: ["intelligente","intelligenti","intelligento","intelligentas"], correct: 1 },
+      { q: "Where do most adjectives go?", opts: ["Before the noun","After the noun","Either position","At the end of the sentence"], correct: 1 },
+      { q: "The opposite of 'facile' is:", opts: ["duro","complesso","difficile","pesante"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 7 =====================
+  {
+    id: 7, level: "A1", title: "Numbers, Time & Days",
+    desc: "Count, tell time, and talk about days, months, and dates.",
+    lessons: [
+      {
+        title: "Numbers 0–100", icon: "🔢",
+        content: `
+          <div class="grammar-box">
+            <h4>0–20</h4>
+            <p style="font-size:14px; line-height:2; font-family:'Playfair Display',serif; font-style:italic;">
+              zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove, dieci,
+              undici, dodici, tredici, quattordici, quindici, sedici, diciassette, diciotto, diciannove, venti
+            </p>
+          </div>
+          <div class="grammar-box">
+            <h4>Tens & Patterns</h4>
+            <p style="font-size:14px;">venti (20), trenta (30), quaranta (40), cinquanta (50), sessanta (60), settanta (70), ottanta (80), novanta (90), cento (100)</p>
+            <div class="example"><span class="it">venti + uno = ventuno</span><span class="en">21 (drop final vowel before uno/otto)</span></div>
+            <div class="example"><span class="it">trenta + tre = trentatré</span><span class="en">33</span></div>
+            <div class="example"><span class="it">quarant'otto</span><span class="en">48</span></div>
+          </div>
+        `
+      },
+      {
+        title: "Days, Months & Time", icon: "📅",
+        content: `
+          <div class="grammar-box">
+            <h4>Days of the Week (i giorni della settimana)</h4>
+            <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:2;">
+              lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica
+            </p>
+          </div>
+          <div class="grammar-box">
+            <h4>Months (i mesi)</h4>
+            <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:15px; line-height:2;">
+              gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre
+            </p>
+          </div>
+          <div class="grammar-box">
+            <h4>Telling Time</h4>
+            <div class="example"><span class="it">Che ore sono? / Che ora è?</span><span class="en">What time is it?</span></div>
+            <div class="example"><span class="it">È l'una. / Sono le due.</span><span class="en">It's 1:00. / It's 2:00.</span></div>
+            <div class="example"><span class="it">Sono le tre e mezza.</span><span class="en">It's 3:30.</span></div>
+            <div class="example"><span class="it">Sono le cinque e un quarto.</span><span class="en">It's 5:15.</span></div>
+            <div class="example"><span class="it">Sono le otto meno dieci.</span><span class="en">It's 7:50 (ten to eight).</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> Days & months are NOT capitalized in Italian! Dates use cardinal numbers: "il 3 marzo" (March 3rd), except for the 1st: "il primo marzo."</div>
+        `
+      }
+    ],
+    vocab: [
+      ["oggi","today"],["domani","tomorrow"],["ieri","yesterday"],["ora","now"],["sempre","always"],["mai","never"],["mattina","morning"],["pomeriggio","afternoon"],["sera","evening"],["notte","night"],["anno","year"],["mese","month"]
+    ],
+    quiz: [
+      { q: "How do you say 48 in Italian?", opts: ["quaranta otto","quarantotto","quarant'otto","quarantaotto"], correct: 1 },
+      { q: "'Sono le due e mezza' means:", opts: ["It's 12:30","It's 2:30","It's half past midnight","It's 2:15"], correct: 1 },
+      { q: "Which is correct for March 1st?", opts: ["il uno marzo","il 1 marzo","il primo marzo","marzo uno"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 8 =====================
+  {
+    id: 8, level: "A2", title: "Prepositions & Contractions",
+    desc: "Master Italian prepositions and their contractions with articles.",
+    lessons: [
+      {
+        title: "Simple Prepositions", icon: "📍",
+        content: `
+          <div class="grammar-box">
+            <h4>The 8 Simple Prepositions</h4>
+            <div class="example"><span class="it">di</span><span class="en">of, from, about</span></div>
+            <div class="example"><span class="it">a</span><span class="en">to, at, in (cities)</span></div>
+            <div class="example"><span class="it">da</span><span class="en">from, by, since, at (someone's place)</span></div>
+            <div class="example"><span class="it">in</span><span class="en">in, to (countries, large areas)</span></div>
+            <div class="example"><span class="it">con</span><span class="en">with</span></div>
+            <div class="example"><span class="it">su</span><span class="en">on, upon, about</span></div>
+            <div class="example"><span class="it">per</span><span class="en">for, through, in order to</span></div>
+            <div class="example"><span class="it">tra/fra</span><span class="en">between, among, in (time)</span></div>
+          </div>
+        `
+      },
+      {
+        title: "Prepositions + Articles (Preposizioni Articolate)", icon: "🔗",
+        content: `
+          <table class="conj-table">
+            <tr><th></th><th>il</th><th>lo</th><th>la</th><th>l'</th><th>i</th><th>gli</th><th>le</th></tr>
+            <tr><td class="pronoun">di</td><td>del</td><td>dello</td><td>della</td><td>dell'</td><td>dei</td><td>degli</td><td>delle</td></tr>
+            <tr><td class="pronoun">a</td><td>al</td><td>allo</td><td>alla</td><td>all'</td><td>ai</td><td>agli</td><td>alle</td></tr>
+            <tr><td class="pronoun">da</td><td>dal</td><td>dallo</td><td>dalla</td><td>dall'</td><td>dai</td><td>dagli</td><td>dalle</td></tr>
+            <tr><td class="pronoun">in</td><td>nel</td><td>nello</td><td>nella</td><td>nell'</td><td>nei</td><td>negli</td><td>nelle</td></tr>
+            <tr><td class="pronoun">su</td><td>sul</td><td>sullo</td><td>sulla</td><td>sull'</td><td>sui</td><td>sugli</td><td>sulle</td></tr>
+          </table>
+          <div class="tip"><strong>💡 Tip:</strong> "con," "per," and "tra/fra" do NOT usually contract with articles in modern Italian. You say "con il" not "col" (though "col" exists, it's less common).</div>
+          <div class="grammar-box" style="margin-top:14px;">
+            <h4>Examples</h4>
+            <div class="example"><span class="it">Vado al cinema.</span><span class="en">I'm going to the cinema.</span></div>
+            <div class="example"><span class="it">Il libro è sulla tavola.</span><span class="en">The book is on the table.</span></div>
+            <div class="example"><span class="it">Vengo dalla Francia.</span><span class="en">I come from France.</span></div>
+            <div class="example"><span class="it">La chiave è nella borsa.</span><span class="en">The key is in the bag.</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["sopra","above"],["sotto","below"],["dentro","inside"],["fuori","outside"],["vicino","near"],["lontano","far"],["davanti","in front of"],["dietro","behind"],["accanto","next to"],["verso","toward"],["fino a","until"],["attraverso","through"]
+    ],
+    quiz: [
+      { q: "'Di + il' contracts to:", opts: ["dil","del","dal","nel"], correct: 1 },
+      { q: "'Vado ___ Roma' (I go to Rome):", opts: ["in","a","da","per"], correct: 1 },
+      { q: "'In + la' contracts to:", opts: ["inla","nla","nella","lla"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 9 =====================
+  {
+    id: 9, level: "A2", title: "Passato Prossimo — Past Tense",
+    desc: "Talk about completed actions in the past using essere and avere as auxiliaries.",
+    lessons: [
+      {
+        title: "Forming the Passato Prossimo", icon: "⏪",
+        content: `
+          <div class="grammar-box">
+            <h4>Structure: auxiliary (essere/avere) + past participle</h4>
+            <div class="example"><span class="it">-ARE → -ato</span><span class="en">parlare → parlato</span></div>
+            <div class="example"><span class="it">-ERE → -uto</span><span class="en">avere → avuto</span></div>
+            <div class="example"><span class="it">-IRE → -ito</span><span class="en">dormire → dormito</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>With AVERE (most verbs)</h4>
+            <div class="example"><span class="it">Ho mangiato una pizza.</span><span class="en">I ate a pizza.</span></div>
+            <div class="example"><span class="it">Hai comprato il pane?</span><span class="en">Did you buy the bread?</span></div>
+            <div class="example"><span class="it">Abbiamo parlato con Marco.</span><span class="en">We spoke with Marco.</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>With ESSERE (movement, state, reflexive verbs)</h4>
+            <p style="font-size:14px; margin-bottom:8px;"><strong>Past participle agrees with subject!</strong></p>
+            <div class="example"><span class="it">Sono andato/a a Roma.</span><span class="en">I went to Rome. (m/f)</span></div>
+            <div class="example"><span class="it">Maria è partita ieri.</span><span class="en">Maria left yesterday.</span></div>
+            <div class="example"><span class="it">Siamo arrivati tardi.</span><span class="en">We arrived late.</span></div>
+          </div>
+          <div class="tip"><strong>💡 ESSERE verbs to memorize:</strong> andare, venire, arrivare, partire, tornare, entrare, uscire, nascere, morire, restare, stare, essere, diventare + all reflexives.</div>
+        `
+      },
+      {
+        title: "Irregular Past Participles", icon: "⚡",
+        content: `
+          <div class="grammar-box">
+            <h4>Must-Know Irregular Participles</h4>
+            <div class="example"><span class="it">fare → fatto</span><span class="en">Ho fatto colazione. (I had breakfast.)</span></div>
+            <div class="example"><span class="it">dire → detto</span><span class="en">Ha detto la verità. (He told the truth.)</span></div>
+            <div class="example"><span class="it">scrivere → scritto</span><span class="en">Ho scritto una lettera.</span></div>
+            <div class="example"><span class="it">leggere → letto</span><span class="en">Hai letto il libro?</span></div>
+            <div class="example"><span class="it">prendere → preso</span><span class="en">Ho preso un caffè.</span></div>
+            <div class="example"><span class="it">vedere → visto</span><span class="en">Abbiamo visto un film.</span></div>
+            <div class="example"><span class="it">essere → stato</span><span class="en">Sono stato a Napoli.</span></div>
+            <div class="example"><span class="it">venire → venuto</span><span class="en">È venuto da Firenze.</span></div>
+            <div class="example"><span class="it">aprire → aperto</span><span class="en">Ho aperto la finestra.</span></div>
+            <div class="example"><span class="it">chiudere → chiuso</span><span class="en">Ha chiuso la porta.</span></div>
+            <div class="example"><span class="it">mettere → messo</span><span class="en">Ho messo il libro sul tavolo.</span></div>
+            <div class="example"><span class="it">rispondere → risposto</span><span class="en">Non ha risposto.</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["ieri","yesterday"],["la settimana scorsa","last week"],["l'anno scorso","last year"],["già","already"],["ancora","yet/still"],["mai","never/ever"],["sempre","always"],["appena","just"],["prima","before"],["dopo","after"],["poi","then"],["infine","finally"]
+    ],
+    quiz: [
+      { q: "'Maria è _____ a casa.' (tornare)", opts: ["tornato","tornata","tornati","torna"], correct: 1 },
+      { q: "The past participle of 'fare' is:", opts: ["fato","faccio","fatto","faciuto"], correct: 2 },
+      { q: "Which uses ESSERE?", opts: ["Ho mangiato","Ho dormito","Sono andato","Ho parlato"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 10 =====================
+  {
+    id: 10, level: "A2", title: "Imperfetto — The Other Past",
+    desc: "Describe habits, ongoing states, and background actions in the past.",
+    lessons: [
+      {
+        title: "Forming the Imperfetto", icon: "🔄",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (dormire)</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">parlavo</td><td class="verb">leggevo</td><td class="verb">dormivo</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">parlavi</td><td class="verb">leggevi</td><td class="verb">dormivi</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="verb">parlava</td><td class="verb">leggeva</td><td class="verb">dormiva</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">parlavamo</td><td class="verb">leggevamo</td><td class="verb">dormivamo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">parlavate</td><td class="verb">leggevate</td><td class="verb">dormivate</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">parlavano</td><td class="verb">leggevano</td><td class="verb">dormivano</td></tr>
+          </table>
+          <div class="grammar-box">
+            <h4>Irregular Imperfetto</h4>
+            <div class="example"><span class="it">essere → ero, eri, era, eravamo, eravate, erano</span><span class="en"></span></div>
+            <div class="example"><span class="it">fare → facevo, facevi, faceva…</span><span class="en"></span></div>
+            <div class="example"><span class="it">dire → dicevo, dicevi, diceva…</span><span class="en"></span></div>
+            <div class="example"><span class="it">bere → bevevo, bevevi, beveva…</span><span class="en"></span></div>
+          </div>
+        `
+      },
+      {
+        title: "Imperfetto vs Passato Prossimo", icon: "⚖️",
+        content: `
+          <div class="grammar-box">
+            <h4>When to use Imperfetto</h4>
+            <div class="example"><span class="it">Habits: Da bambino giocavo ogni giorno.</span><span class="en">As a child I used to play every day.</span></div>
+            <div class="example"><span class="it">Descriptions: Era una bella giornata.</span><span class="en">It was a beautiful day.</span></div>
+            <div class="example"><span class="it">Ongoing: Dormivo quando hai chiamato.</span><span class="en">I was sleeping when you called.</span></div>
+            <div class="example"><span class="it">Age/Time: Avevo 10 anni. Erano le tre.</span><span class="en">I was 10. It was 3 o'clock.</span></div>
+          </div>
+          <div class="grammar-box">
+            <h4>When to use Passato Prossimo</h4>
+            <div class="example"><span class="it">Completed: Ho mangiato alle otto.</span><span class="en">I ate at eight.</span></div>
+            <div class="example"><span class="it">Interrupting: Mentre dormivo, è arrivato Marco.</span><span class="en">While I was sleeping, Marco arrived.</span></div>
+          </div>
+          <div class="tip"><strong>💡 Key:</strong> Imperfetto = "was doing / used to do" (background, habits). Passato Prossimo = "did" (completed action, specific event). They often appear in the same sentence!</div>
+        `
+      }
+    ],
+    vocab: [
+      ["quando","when"],["mentre","while"],["spesso","often"],["di solito","usually"],["ogni giorno","every day"],["a volte","sometimes"],["da bambino/a","as a child"],["una volta","once upon a time"],["all'epoca","at that time"],["in quel momento","at that moment"],["nel frattempo","meanwhile"],["continuamente","continuously"]
+    ],
+    quiz: [
+      { q: "'Da bambina ___ al mare ogni estate.' (andare)", opts: ["sono andata","andavo","ho andato","vado"], correct: 1 },
+      { q: "Imperfetto is used for:", opts: ["Completed single actions","Habits and descriptions","Future plans","Commands"], correct: 1 },
+      { q: "'Mentre ___, ha suonato il telefono.' (studiare, io)", opts: ["ho studiato","studio","studiavo","studiai"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 11 =====================
+  {
+    id: 11, level: "A2", title: "Reflexive Verbs & Daily Routine",
+    desc: "Talk about your daily routine using reflexive verbs.",
+    lessons: [
+      {
+        title: "Reflexive Verbs (Verbi Riflessivi)", icon: "🪞",
+        content: `
+          <div class="grammar-box">
+            <h4>Structure: reflexive pronoun + verb</h4>
+            <div class="example"><span class="it">mi, ti, si, ci, vi, si</span><span class="en">myself, yourself, him/herself, ourselves, yourselves, themselves</span></div>
+          </div>
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>Svegliarsi (to wake up)</th><th>Vestirsi (to get dressed)</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">mi sveglio</td><td class="verb">mi vesto</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">ti svegli</td><td class="verb">ti vesti</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="verb">si sveglia</td><td class="verb">si veste</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">ci svegliamo</td><td class="verb">ci vestiamo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">vi svegliate</td><td class="verb">vi vestite</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">si svegliano</td><td class="verb">si vestono</td></tr>
+          </table>
+          <div class="grammar-box" style="margin-top:14px">
+            <h4>Common Reflexive Verbs</h4>
+            <div class="example"><span class="it">alzarsi</span><span class="en">to get up</span></div>
+            <div class="example"><span class="it">lavarsi</span><span class="en">to wash oneself</span></div>
+            <div class="example"><span class="it">pettinarsi</span><span class="en">to comb one's hair</span></div>
+            <div class="example"><span class="it">mettersi</span><span class="en">to put on (clothes)</span></div>
+            <div class="example"><span class="it">addormentarsi</span><span class="en">to fall asleep</span></div>
+            <div class="example"><span class="it">sentirsi</span><span class="en">to feel</span></div>
+            <div class="example"><span class="it">divertirsi</span><span class="en">to have fun</span></div>
+            <div class="example"><span class="it">chiamarsi</span><span class="en">to be called</span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> In the passato prossimo, reflexives ALWAYS use essere: "Mi sono svegliato/a alle sette." The participle agrees with the subject!</div>
+        `
+      }
+    ],
+    vocab: [
+      ["svegliarsi","to wake up"],["alzarsi","to get up"],["lavarsi","to wash"],["vestirsi","to get dressed"],["prepararsi","to get ready"],["addormentarsi","to fall asleep"],["rilassarsi","to relax"],["divertirsi","to have fun"],["sentirsi","to feel"],["arrabbiarsi","to get angry"],["innamorarsi","to fall in love"],["ricordarsi","to remember"]
+    ],
+    quiz: [
+      { q: "'Noi ___ alle 7.' (svegliarsi)", opts: ["si svegliamo","ci svegliamo","vi svegliate","mi sveglio"], correct: 1 },
+      { q: "Passato prossimo of 'alzarsi' (io, f.):", opts: ["Ho alzata","Mi sono alzata","Mi ho alzato","Sono alzata"], correct: 1 },
+      { q: "'Lei ___ Maria.' (chiamarsi)", opts: ["mi chiama","ti chiami","si chiama","ci chiamiamo"], correct: 2 }
+    ]
+  },
+
+  // ===================== UNIT 12 =====================
+  {
+    id: 12, level: "A2", title: "Future Tense & Modal Verbs",
+    desc: "Talk about plans, possibilities, and express ability, desire, and obligation.",
+    lessons: [
+      {
+        title: "Futuro Semplice", icon: "🔮",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>-ARE (parlare)</th><th>-ERE (prendere)</th><th>-IRE (partire)</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">parlerò</td><td class="verb">prenderò</td><td class="verb">partirò</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">parlerai</td><td class="verb">prenderai</td><td class="verb">partirai</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="verb">parlerà</td><td class="verb">prenderà</td><td class="verb">partirà</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">parleremo</td><td class="verb">prenderemo</td><td class="verb">partiremo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">parlerete</td><td class="verb">prenderete</td><td class="verb">partirete</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">parleranno</td><td class="verb">prenderanno</td><td class="verb">partiranno</td></tr>
+          </table>
+          <div class="grammar-box">
+            <h4>Common Irregular Stems</h4>
+            <div class="example"><span class="it">essere → sar- (sarò, sarai…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">avere → avr- (avrò, avrai…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">fare → far- (farò…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">andare → andr- (andrò…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">venire → verr- (verrò…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">potere → potr- (potrò…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">dovere → dovr- (dovrò…)</span><span class="en"></span></div>
+            <div class="example"><span class="it">volere → vorr- (vorrò…)</span><span class="en"></span></div>
+          </div>
+          <div class="tip"><strong>💡 Tip:</strong> In informal speech, Italians often use the present tense for the near future: "Domani vado a Roma" instead of "Domani andrò a Roma." Both are correct!</div>
+        `
+      },
+      {
+        title: "Modal Verbs: Potere, Dovere, Volere", icon: "🔑",
+        content: `
+          <table class="conj-table">
+            <tr><th>Pronoun</th><th>Potere (can)</th><th>Dovere (must)</th><th>Volere (want)</th></tr>
+            <tr><td class="pronoun">io</td><td class="verb">posso</td><td class="verb">devo</td><td class="verb">voglio</td></tr>
+            <tr><td class="pronoun">tu</td><td class="verb">puoi</td><td class="verb">devi</td><td class="verb">vuoi</td></tr>
+            <tr><td class="pronoun">lui/lei</td><td class="verb">può</td><td class="verb">deve</td><td class="verb">vuole</td></tr>
+            <tr><td class="pronoun">noi</td><td class="verb">possiamo</td><td class="verb">dobbiamo</td><td class="verb">vogliamo</td></tr>
+            <tr><td class="pronoun">voi</td><td class="verb">potete</td><td class="verb">dovete</td><td class="verb">volete</td></tr>
+            <tr><td class="pronoun">loro</td><td class="verb">possono</td><td class="verb">devono</td><td class="verb">vogliono</td></tr>
+          </table>
+          <div class="grammar-box">
+            <h4>Usage: Modal + Infinitive</h4>
+            <div class="example"><span class="it">Posso venire domani.</span><span class="en">I can come tomorrow.</span></div>
+            <div class="example"><span class="it">Devi studiare di più.</span><span class="en">You must study more.</span></div>
+            <div class="example"><span class="it">Voglio imparare l'italiano!</span><span class="en">I want to learn Italian!</span></div>
+            <div class="example"><span class="it">Vorrei un caffè, per favore.</span><span class="en">I would like a coffee, please. (conditional — polite)</span></div>
+          </div>
+        `
+      }
+    ],
+    vocab: [
+      ["potere","to be able to"],["dovere","to have to"],["volere","to want"],["sapere","to know (how)"],["domani","tomorrow"],["la prossima settimana","next week"],["fra poco","soon"],["più tardi","later"],["forse","maybe"],["probabilmente","probably"],["sicuramente","certainly"],["sperare","to hope"]
+    ],
+    quiz: [
+      { q: "'Domani noi ___ a Firenze.' (andare, futuro)", opts: ["andiamo","andremo","anderemo","andaremo"], correct: 1 },
+      { q: "'I want to eat' in Italian:", opts: ["Voglio mangiare","Posso mangiare","Devo mangiare","Mangio volere"], correct: 0 },
+      { q: "The future stem of 'essere' is:", opts: ["esser-","ess-","sar-","ser-"], correct: 2 }
+    ]
+  }
+];
+
+// ============ VERB REFERENCE TABLE DATA ============
+const VERBS = [
+  // -ARE regular
+  { inf:"parlare", mean:"to speak", type:"are", presente:["parlo","parli","parla","parliamo","parlate","parlano"], passato:["ho parlato","hai parlato","ha parlato","abbiamo parlato","avete parlato","hanno parlato"], imperfetto:["parlavo","parlavi","parlava","parlavamo","parlavate","parlavano"], futuro:["parlerò","parlerai","parlerà","parleremo","parlerete","parleranno"] },
+  { inf:"mangiare", mean:"to eat", type:"are", presente:["mangio","mangi","mangia","mangiamo","mangiate","mangiano"], passato:["ho mangiato","hai mangiato","ha mangiato","abbiamo mangiato","avete mangiato","hanno mangiato"], imperfetto:["mangiavo","mangiavi","mangiava","mangiavamo","mangiavate","mangiavano"], futuro:["mangerò","mangerai","mangerà","mangeremo","mangerete","mangeranno"] },
+  { inf:"lavorare", mean:"to work", type:"are", presente:["lavoro","lavori","lavora","lavoriamo","lavorate","lavorano"], passato:["ho lavorato","hai lavorato","ha lavorato","abbiamo lavorato","avete lavorato","hanno lavorato"], imperfetto:["lavoravo","lavoravi","lavorava","lavoravamo","lavoravate","lavoravano"], futuro:["lavorerò","lavorerai","lavorerà","lavoreremo","lavorerete","lavoreranno"] },
+  { inf:"abitare", mean:"to live", type:"are", presente:["abito","abiti","abita","abitiamo","abitate","abitano"], passato:["ho abitato","hai abitato","ha abitato","abbiamo abitato","avete abitato","hanno abitato"], imperfetto:["abitavo","abitavi","abitava","abitavamo","abitavate","abitavano"], futuro:["abiterò","abiterai","abiterà","abiteremo","abiterete","abiteranno"] },
+  { inf:"comprare", mean:"to buy", type:"are", presente:["compro","compri","compra","compriamo","comprate","comprano"], passato:["ho comprato","hai comprato","ha comprato","abbiamo comprato","avete comprato","hanno comprato"], imperfetto:["compravo","compravi","comprava","compravamo","compravate","compravano"], futuro:["comprerò","comprerai","comprerà","compreremo","comprerete","compreranno"] },
+  { inf:"guardare", mean:"to watch", type:"are", presente:["guardo","guardi","guarda","guardiamo","guardate","guardano"], passato:["ho guardato","hai guardato","ha guardato","abbiamo guardato","avete guardato","hanno guardato"], imperfetto:["guardavo","guardavi","guardava","guardavamo","guardavate","guardavano"], futuro:["guarderò","guarderai","guarderà","guarderemo","guarderete","guarderanno"] },
+  { inf:"studiare", mean:"to study", type:"are", presente:["studio","studi","studia","studiamo","studiate","studiano"], passato:["ho studiato","hai studiato","ha studiato","abbiamo studiato","avete studiato","hanno studiato"], imperfetto:["studiavo","studiavi","studiava","studiavamo","studiavate","studiavano"], futuro:["studierò","studierai","studierà","studieremo","studierete","studieranno"] },
+  { inf:"ascoltare", mean:"to listen", type:"are", presente:["ascolto","ascolti","ascolta","ascoltiamo","ascoltate","ascoltano"], passato:["ho ascoltato","hai ascoltato","ha ascoltato","abbiamo ascoltato","avete ascoltato","hanno ascoltato"], imperfetto:["ascoltavo","ascoltavi","ascoltava","ascoltavamo","ascoltavate","ascoltavano"], futuro:["ascolterò","ascolterai","ascolterà","ascolteremo","ascolterete","ascolteranno"] },
+  // -ERE regular
+  { inf:"scrivere", mean:"to write", type:"ere", presente:["scrivo","scrivi","scrive","scriviamo","scrivete","scrivono"], passato:["ho scritto","hai scritto","ha scritto","abbiamo scritto","avete scritto","hanno scritto"], imperfetto:["scrivevo","scrivevi","scriveva","scrivevamo","scrivevate","scrivevano"], futuro:["scriverò","scriverai","scriverà","scriveremo","scriverete","scriveranno"] },
+  { inf:"leggere", mean:"to read", type:"ere", presente:["leggo","leggi","legge","leggiamo","leggete","leggono"], passato:["ho letto","hai letto","ha letto","abbiamo letto","avete letto","hanno letto"], imperfetto:["leggevo","leggevi","leggeva","leggevamo","leggevate","leggevano"], futuro:["leggerò","leggerai","leggerà","leggeremo","leggerete","leggeranno"] },
+  { inf:"prendere", mean:"to take", type:"ere", presente:["prendo","prendi","prende","prendiamo","prendete","prendono"], passato:["ho preso","hai preso","ha preso","abbiamo preso","avete preso","hanno preso"], imperfetto:["prendevo","prendevi","prendeva","prendevamo","prendevate","prendevano"], futuro:["prenderò","prenderai","prenderà","prenderemo","prenderete","prenderanno"] },
+  { inf:"vivere", mean:"to live", type:"ere", presente:["vivo","vivi","vive","viviamo","vivete","vivono"], passato:["ho vissuto","hai vissuto","ha vissuto","abbiamo vissuto","avete vissuto","hanno vissuto"], imperfetto:["vivevo","vivevi","viveva","vivevamo","vivevate","vivevano"], futuro:["vivrò","vivrai","vivrà","vivremo","vivrete","vivranno"] },
+  { inf:"mettere", mean:"to put", type:"ere", presente:["metto","metti","mette","mettiamo","mettete","mettono"], passato:["ho messo","hai messo","ha messo","abbiamo messo","avete messo","hanno messo"], imperfetto:["mettevo","mettevi","metteva","mettevamo","mettevate","mettevano"], futuro:["metterò","metterai","metterà","metteremo","metterete","metteranno"] },
+  { inf:"chiudere", mean:"to close", type:"ere", presente:["chiudo","chiudi","chiude","chiudiamo","chiudete","chiudono"], passato:["ho chiuso","hai chiuso","ha chiuso","abbiamo chiuso","avete chiuso","hanno chiuso"], imperfetto:["chiudevo","chiudevi","chiudeva","chiudevamo","chiudevate","chiudevano"], futuro:["chiuderò","chiuderai","chiuderà","chiuderemo","chiuderete","chiuderanno"] },
+  { inf:"rispondere", mean:"to answer", type:"ere", presente:["rispondo","rispondi","risponde","rispondiamo","rispondete","rispondono"], passato:["ho risposto","hai risposto","ha risposto","abbiamo risposto","avete risposto","hanno risposto"], imperfetto:["rispondevo","rispondevi","rispondeva","rispondevamo","rispondevate","rispondevano"], futuro:["risponderò","risponderai","risponderà","risponderemo","risponderete","risponderanno"] },
+  // -IRE regular
+  { inf:"dormire", mean:"to sleep", type:"ire", presente:["dormo","dormi","dorme","dormiamo","dormite","dormono"], passato:["ho dormito","hai dormito","ha dormito","abbiamo dormito","avete dormito","hanno dormito"], imperfetto:["dormivo","dormivi","dormiva","dormivamo","dormivate","dormivano"], futuro:["dormirò","dormirai","dormirà","dormiremo","dormirete","dormiranno"] },
+  { inf:"capire", mean:"to understand", type:"ire", presente:["capisco","capisci","capisce","capiamo","capite","capiscono"], passato:["ho capito","hai capito","ha capito","abbiamo capito","avete capito","hanno capito"], imperfetto:["capivo","capivi","capiva","capivamo","capivate","capivano"], futuro:["capirò","capirai","capirà","capiremo","capirete","capiranno"] },
+  { inf:"finire", mean:"to finish", type:"ire", presente:["finisco","finisci","finisce","finiamo","finite","finiscono"], passato:["ho finito","hai finito","ha finito","abbiamo finito","avete finito","hanno finito"], imperfetto:["finivo","finivi","finiva","finivamo","finivate","finivano"], futuro:["finirò","finirai","finirà","finiremo","finirete","finiranno"] },
+  { inf:"partire", mean:"to leave", type:"ire", presente:["parto","parti","parte","partiamo","partite","partono"], passato:["sono partito/a","sei partito/a","è partito/a","siamo partiti/e","siete partiti/e","sono partiti/e"], imperfetto:["partivo","partivi","partiva","partivamo","partivate","partivano"], futuro:["partirò","partirai","partirà","partiremo","partirete","partiranno"] },
+  { inf:"aprire", mean:"to open", type:"ire", presente:["apro","apri","apre","apriamo","aprite","aprono"], passato:["ho aperto","hai aperto","ha aperto","abbiamo aperto","avete aperto","hanno aperto"], imperfetto:["aprivo","aprivi","apriva","aprivamo","aprivate","aprivano"], futuro:["aprirò","aprirai","aprirà","apriremo","aprirete","apriranno"] },
+  { inf:"preferire", mean:"to prefer", type:"ire", presente:["preferisco","preferisci","preferisce","preferiamo","preferite","preferiscono"], passato:["ho preferito","hai preferito","ha preferito","abbiamo preferito","avete preferito","hanno preferito"], imperfetto:["preferivo","preferivi","preferiva","preferivamo","preferivate","preferivano"], futuro:["preferirò","preferirai","preferirà","preferiremo","preferirete","preferiranno"] },
+  // Irregular / essential
+  { inf:"essere", mean:"to be", type:"irreg", presente:["sono","sei","è","siamo","siete","sono"], passato:["sono stato/a","sei stato/a","è stato/a","siamo stati/e","siete stati/e","sono stati/e"], imperfetto:["ero","eri","era","eravamo","eravate","erano"], futuro:["sarò","sarai","sarà","saremo","sarete","saranno"] },
+  { inf:"avere", mean:"to have", type:"irreg", presente:["ho","hai","ha","abbiamo","avete","hanno"], passato:["ho avuto","hai avuto","ha avuto","abbiamo avuto","avete avuto","hanno avuto"], imperfetto:["avevo","avevi","aveva","avevamo","avevate","avevano"], futuro:["avrò","avrai","avrà","avremo","avrete","avranno"] },
+  { inf:"fare", mean:"to do/make", type:"irreg", presente:["faccio","fai","fa","facciamo","fate","fanno"], passato:["ho fatto","hai fatto","ha fatto","abbiamo fatto","avete fatto","hanno fatto"], imperfetto:["facevo","facevi","faceva","facevamo","facevate","facevano"], futuro:["farò","farai","farà","faremo","farete","faranno"] },
+  { inf:"andare", mean:"to go", type:"irreg", presente:["vado","vai","va","andiamo","andate","vanno"], passato:["sono andato/a","sei andato/a","è andato/a","siamo andati/e","siete andati/e","sono andati/e"], imperfetto:["andavo","andavi","andava","andavamo","andavate","andavano"], futuro:["andrò","andrai","andrà","andremo","andrete","andranno"] },
+  { inf:"venire", mean:"to come", type:"irreg", presente:["vengo","vieni","viene","veniamo","venite","vengono"], passato:["sono venuto/a","sei venuto/a","è venuto/a","siamo venuti/e","siete venuti/e","sono venuti/e"], imperfetto:["venivo","venivi","veniva","venivamo","venivate","venivano"], futuro:["verrò","verrai","verrà","verremo","verrete","verranno"] },
+  { inf:"dire", mean:"to say", type:"irreg", presente:["dico","dici","dice","diciamo","dite","dicono"], passato:["ho detto","hai detto","ha detto","abbiamo detto","avete detto","hanno detto"], imperfetto:["dicevo","dicevi","diceva","dicevamo","dicevate","dicevano"], futuro:["dirò","dirai","dirà","diremo","direte","diranno"] },
+  { inf:"dare", mean:"to give", type:"irreg", presente:["do","dai","dà","diamo","date","danno"], passato:["ho dato","hai dato","ha dato","abbiamo dato","avete dato","hanno dato"], imperfetto:["davo","davi","dava","davamo","davate","davano"], futuro:["darò","darai","darà","daremo","darete","daranno"] },
+  { inf:"stare", mean:"to stay/be", type:"irreg", presente:["sto","stai","sta","stiamo","state","stanno"], passato:["sono stato/a","sei stato/a","è stato/a","siamo stati/e","siete stati/e","sono stati/e"], imperfetto:["stavo","stavi","stava","stavamo","stavate","stavano"], futuro:["starò","starai","starà","staremo","starete","staranno"] },
+  { inf:"sapere", mean:"to know", type:"irreg", presente:["so","sai","sa","sappiamo","sapete","sanno"], passato:["ho saputo","hai saputo","ha saputo","abbiamo saputo","avete saputo","hanno saputo"], imperfetto:["sapevo","sapevi","sapeva","sapevamo","sapevate","sapevano"], futuro:["saprò","saprai","saprà","sapremo","saprete","sapranno"] },
+  { inf:"uscire", mean:"to go out", type:"irreg", presente:["esco","esci","esce","usciamo","uscite","escono"], passato:["sono uscito/a","sei uscito/a","è uscito/a","siamo usciti/e","siete usciti/e","sono usciti/e"], imperfetto:["uscivo","uscivi","usciva","uscivamo","uscivate","uscivano"], futuro:["uscirò","uscirai","uscirà","usciremo","uscirete","usciranno"] },
+  { inf:"bere", mean:"to drink", type:"irreg", presente:["bevo","bevi","beve","beviamo","bevete","bevono"], passato:["ho bevuto","hai bevuto","ha bevuto","abbiamo bevuto","avete bevuto","hanno bevuto"], imperfetto:["bevevo","bevevi","beveva","bevevamo","bevevate","bevevano"], futuro:["berrò","berrai","berrà","berremo","berrete","berranno"] },
+  { inf:"vedere", mean:"to see", type:"irreg", presente:["vedo","vedi","vede","vediamo","vedete","vedono"], passato:["ho visto","hai visto","ha visto","abbiamo visto","avete visto","hanno visto"], imperfetto:["vedevo","vedevi","vedeva","vedevamo","vedevate","vedevano"], futuro:["vedrò","vedrai","vedrà","vedremo","vedrete","vedranno"] },
+  // Modal
+  { inf:"potere", mean:"can/to be able", type:"modal", presente:["posso","puoi","può","possiamo","potete","possono"], passato:["ho potuto","hai potuto","ha potuto","abbiamo potuto","avete potuto","hanno potuto"], imperfetto:["potevo","potevi","poteva","potevamo","potevate","potevano"], futuro:["potrò","potrai","potrà","potremo","potrete","potranno"] },
+  { inf:"dovere", mean:"must/to have to", type:"modal", presente:["devo","devi","deve","dobbiamo","dovete","devono"], passato:["ho dovuto","hai dovuto","ha dovuto","abbiamo dovuto","avete dovuto","hanno dovuto"], imperfetto:["dovevo","dovevi","doveva","dovevamo","dovevate","dovevano"], futuro:["dovrò","dovrai","dovrà","dovremo","dovrete","dovranno"] },
+  { inf:"volere", mean:"to want", type:"modal", presente:["voglio","vuoi","vuole","vogliamo","volete","vogliono"], passato:["ho voluto","hai voluto","ha voluto","abbiamo voluto","avete voluto","hanno voluto"], imperfetto:["volevo","volevi","voleva","volevamo","volevate","volevano"], futuro:["vorrò","vorrai","vorrà","vorremo","vorrete","vorranno"] },
+  // Reflexive
+  { inf:"svegliarsi", mean:"to wake up", type:"reflex", presente:["mi sveglio","ti svegli","si sveglia","ci svegliamo","vi svegliate","si svegliano"], passato:["mi sono svegliato/a","ti sei svegliato/a","si è svegliato/a","ci siamo svegliati/e","vi siete svegliati/e","si sono svegliati/e"], imperfetto:["mi svegliavo","ti svegliavi","si svegliava","ci svegliavamo","vi svegliavate","si svegliavano"], futuro:["mi sveglierò","ti sveglierai","si sveglierà","ci sveglieremo","vi sveglierete","si sveglieranno"] },
+  { inf:"vestirsi", mean:"to get dressed", type:"reflex", presente:["mi vesto","ti vesti","si veste","ci vestiamo","vi vestite","si vestono"], passato:["mi sono vestito/a","ti sei vestito/a","si è vestito/a","ci siamo vestiti/e","vi siete vestiti/e","si sono vestiti/e"], imperfetto:["mi vestivo","ti vestivi","si vestiva","ci vestivamo","vi vestivate","si vestivano"], futuro:["mi vestirò","ti vestirai","si vestirà","ci vestiremo","vi vestirete","si vestiranno"] },
+  { inf:"chiamarsi", mean:"to be called", type:"reflex", presente:["mi chiamo","ti chiami","si chiama","ci chiamiamo","vi chiamate","si chiamano"], passato:["mi sono chiamato/a","ti sei chiamato/a","si è chiamato/a","ci siamo chiamati/e","vi siete chiamati/e","si sono chiamati/e"], imperfetto:["mi chiamavo","ti chiamavi","si chiamava","ci chiamavamo","vi chiamavate","si chiamavano"], futuro:["mi chiamerò","ti chiamerai","si chiamerà","ci chiameremo","vi chiamerete","si chiameranno"] },
+  { inf:"divertirsi", mean:"to have fun", type:"reflex", presente:["mi diverto","ti diverti","si diverte","ci divertiamo","vi divertite","si divertono"], passato:["mi sono divertito/a","ti sei divertito/a","si è divertito/a","ci siamo divertiti/e","vi siete divertiti/e","si sono divertiti/e"], imperfetto:["mi divertivo","ti divertivi","si divertiva","ci divertivamo","vi divertivate","si divertivano"], futuro:["mi divertirò","ti divertirai","si divertirà","ci divertiremo","vi divertirete","si divertiranno"] },
+];
+
+const PRONOUNS = ["io","tu","lui/lei","noi","voi","loro"];
+const TYPE_LABELS = { are:"-ARE", ere:"-ERE", ire:"-IRE", irreg:"Irregular", modal:"Modal", reflex:"Reflexive" };
+const TYPE_CSS = { are:"type-are", ere:"type-ere", ire:"type-ire", irreg:"type-irreg", modal:"type-modal", reflex:"type-reflex" };
+
+let verbFilter = "all";
+let verbTense = "presente";
+let verbSearch = "";
+let showingVerbTable = false;
+
+// ============ APP LOGIC ============
+let currentUnit = 0;
+let quizStates = {};
+let vocabStates = {};
+
+function getProgress() {
+  let total = COURSE.reduce((s,u) => s + u.quiz.length, 0);
+  let done = Object.values(quizStates).filter(v => v === true).length;
+  return Math.round((done / total) * 100);
+}
+
+function render() {
+  const unit = COURSE[currentUnit];
+  const progress = getProgress();
+
+  let html = `
+    <div class="header">
+      <h1>Impara l'<span>Italiano</span></h1>
+      <p>A complete A1 → A2 course · 12 Units · Grammar, Verbs & Vocabulary</p>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" style="width:${progress}%"></div>
+    </div>
+    <div class="nav">
+      ${COURSE.map((u, i) => `
+        <button class="nav-btn ${i === currentUnit ? 'active' : ''}" onclick="goUnit(${i})">
+          <span class="unit-num">${u.level}</span> ${i+1}. ${u.title.split('—')[0].trim()}
+        </button>
+      `).join('')}
+      <button class="nav-btn ${showingVerbTable ? 'active' : ''}" onclick="toggleVerbTable()" style="background:${showingVerbTable ? 'var(--accent)' : 'var(--card)'};border-color:${showingVerbTable ? 'var(--accent)' : 'var(--border)'};color:${showingVerbTable ? 'white' : 'var(--text2)'};">
+        📊 Verb Table
+      </button>
+    </div>`;
+
+  // ===== VERB TABLE VIEW =====
+  if (showingVerbTable) {
+    const tenses = ["presente","passato","imperfetto","futuro"];
+    const tenseLabels = { presente:"Presente", passato:"Passato Prossimo", imperfetto:"Imperfetto", futuro:"Futuro" };
+    const types = ["all","are","ere","ire","irreg","modal","reflex"];
+    const typeFilterLabels = { all:"All Verbs", are:"-ARE", ere:"-ERE", ire:"-IRE", irreg:"Irregular", modal:"Modal", reflex:"Reflexive" };
+
+    let filtered = VERBS;
+    if (verbFilter !== "all") filtered = filtered.filter(v => v.type === verbFilter);
+    if (verbSearch.trim()) {
+      const s = verbSearch.trim().toLowerCase();
+      filtered = filtered.filter(v => v.inf.toLowerCase().includes(s) || v.mean.toLowerCase().includes(s));
+    }
+
+    html += `
+    <div class="unit-page">
+      <div class="unit-header">
+        <span class="level-badge" style="background:#FEF3C7;color:#92400E;">📊 Reference</span>
+        <h2>Verb Conjugation Table</h2>
+        <p>All ${VERBS.length} verbs across 4 tenses — search, filter by type, and switch tenses.</p>
+      </div>
+      <div class="lesson">
+        <input class="verb-search-box" type="text" placeholder="🔍 Search verbs (e.g. andare, to go…)" value="${verbSearch}" oninput="updateVerbSearch(this.value)" />
+
+        <div class="verb-tense-tabs">
+          ${tenses.map(t => `<button class="verb-tense-tab ${verbTense === t ? 'active' : ''}" onclick="setVerbTense('${t}')">${tenseLabels[t]}</button>`).join('')}
+        </div>
+
+        <div class="verb-filters">
+          ${types.map(t => `<button class="verb-filter-btn ${verbFilter === t ? 'active' : ''}" onclick="setVerbFilter('${t}')">${typeFilterLabels[t]}</button>`).join('')}
+        </div>
+
+        ${filtered.length === 0 ? '<p style="text-align:center;color:var(--text3);padding:24px;">No verbs match your search.</p>' : `
+        <div style="overflow-x:auto; border-radius:12px;">
+          <table class="verb-ref-table">
+            <thead>
+              <tr>
+                <th style="min-width:130px;">Verb</th>
+                <th>io</th>
+                <th>tu</th>
+                <th>lui/lei</th>
+                <th>noi</th>
+                <th>voi</th>
+                <th>loro</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filtered.map(v => `
+                <tr>
+                  <td>
+                    <span class="v-inf">${v.inf}</span>
+                    <span class="v-meaning">${v.mean}</span>
+                    <span class="v-type ${TYPE_CSS[v.type]}">${TYPE_LABELS[v.type]}</span>
+                  </td>
+                  ${v[verbTense].map(c => `<td class="v-conj">${c}</td>`).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>`}
+      </div>
+
+      <div class="tip" style="margin-top:16px;"><strong>💡 Tip:</strong> Pronouns: <em>io</em> (I), <em>tu</em> (you), <em>lui/lei</em> (he/she), <em>noi</em> (we), <em>voi</em> (you all), <em>loro</em> (they). In passato prossimo, verbs with <em>essere</em> show agreement: -o/a (sing.), -i/e (plur.).</div>
+    </div>`;
+
+  } else {
+  // ===== UNIT VIEW =====
+  html += `
+    <div class="unit-page">
+      <div class="unit-header">
+        <span class="level-badge level-${unit.level.toLowerCase()}">${unit.level}</span>
+        <h2>Unit ${unit.id}: ${unit.title}</h2>
+        <p>${unit.desc}</p>
+      </div>
+  `;
+
+  // Lessons
+  unit.lessons.forEach((lesson, li) => {
+    html += `
+      <div class="lesson">
+        <h3><span class="icon">${lesson.icon}</span> ${lesson.title}</h3>
+        ${lesson.content}
+      </div>
+    `;
+  });
+
+  // Vocabulary
+  html += `
+    <div class="lesson">
+      <h3><span class="icon">📚</span> Vocabulary — Tap to reveal</h3>
+      <div class="vocab-grid">
+        ${unit.vocab.map(([w, t], vi) => {
+          const key = `${currentUnit}-${vi}`;
+          const hidden = !vocabStates[key];
+          return `
+            <div class="vocab-card ${hidden ? 'hidden' : ''}" onclick="toggleVocab('${key}', this)">
+              <span class="word">${w}</span>
+              <span class="trans">${t}</span>
+              ${hidden ? '<span class="hint">tap</span>' : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+
+  // Quiz
+  html += `
+    <div class="lesson">
+      <h3><span class="icon">✅</span> Practice Quiz</h3>
+      ${unit.quiz.map((q, qi) => {
+        const qKey = `${currentUnit}-${qi}`;
+        const answered = quizStates[qKey] !== undefined;
+        return `
+          <div class="quiz-box" style="margin-bottom:14px;">
+            <h4>Question ${qi+1}</h4>
+            <div class="quiz-question">${q.q}</div>
+            <div class="quiz-options">
+              ${q.opts.map((opt, oi) => {
+                let cls = '';
+                if (answered) {
+                  if (oi === q.correct) cls = 'correct';
+                  else if (quizStates[qKey] === oi && oi !== q.correct) cls = 'wrong';
+                }
+                return `<button class="quiz-opt ${cls}" ${answered ? 'disabled' : ''} onclick="answerQuiz('${qKey}', ${oi}, ${q.correct}, this)">${opt}</button>`;
+              }).join('')}
+            </div>
+            ${answered ? `<div class="quiz-feedback ${quizStates[qKey] === true ? 'correct' : 'wrong'}">
+              ${quizStates[qKey] === true ? '✓ Corretto! Bravo/a!' : '✗ Non esatto. The correct answer is highlighted above.'}
+            </div>` : ''}
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+
+  // Navigation
+  html += `
+    <div class="footer-nav">
+      <button class="footer-btn" ${currentUnit === 0 ? 'disabled' : ''} onclick="goUnit(${currentUnit - 1})">← Previous Unit</button>
+      <button class="footer-btn primary" ${currentUnit === COURSE.length - 1 ? 'disabled' : ''} onclick="goUnit(${currentUnit + 1})">Next Unit →</button>
+    </div>
+  `;
+
+  html += '</div>';
+  } // end else (unit view)
+  document.getElementById('app').innerHTML = html;
+}
+
+function goUnit(i) {
+  if (i < 0 || i >= COURSE.length) return;
+  showingVerbTable = false;
+  currentUnit = i;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleVerbTable() {
+  showingVerbTable = !showingVerbTable;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setVerbFilter(f) {
+  verbFilter = f;
+  render();
+}
+
+function setVerbTense(t) {
+  verbTense = t;
+  render();
+}
+
+function updateVerbSearch(val) {
+  verbSearch = val;
+  render();
+  // re-focus and restore cursor
+  const input = document.querySelector('.verb-search-box');
+  if (input) { input.focus(); input.setSelectionRange(val.length, val.length); }
+}
+
+function toggleVocab(key, el) {
+  vocabStates[key] = !vocabStates[key];
+  el.classList.toggle('hidden');
+  const hint = el.querySelector('.hint');
+  if (hint) hint.remove();
+}
+
+function answerQuiz(qKey, chosen, correct, el) {
+  if (quizStates[qKey] !== undefined) return;
+  quizStates[qKey] = chosen === correct ? true : chosen;
+
+  // Update buttons in-place without re-rendering
+  const quizBox = el.closest('.quiz-box');
+  const buttons = quizBox.querySelectorAll('.quiz-opt');
+  buttons.forEach((btn, oi) => {
+    btn.disabled = true;
+    if (oi === correct) btn.classList.add('correct');
+    else if (oi === chosen && chosen !== correct) btn.classList.add('wrong');
+  });
+
+  // Add feedback message
+  const isCorrect = chosen === correct;
+  const feedback = document.createElement('div');
+  feedback.className = 'quiz-feedback ' + (isCorrect ? 'correct' : 'wrong');
+  feedback.textContent = isCorrect ? '✓ Corretto! Bravo/a!' : '✗ Non esatto. The correct answer is highlighted above.';
+  quizBox.appendChild(feedback);
+}
+
+render();
+</script>
+</body>
+</html>
